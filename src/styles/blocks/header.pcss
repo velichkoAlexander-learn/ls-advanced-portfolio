@@ -1,0 +1,222 @@
+.top-wrapper {
+  background: url("../images/Mountain_Baloon.png") no-repeat center;
+  background-size: cover;
+}
+
+.header {
+  padding: 64px 0;
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 800;
+  color: #464d62;
+}
+
+
+.main-menu {
+  display: flex;
+  
+  
+  &__item {
+    color: #464d62;
+    
+    &:not(:last-child) {
+      margin-right: 60px;
+    }
+  }
+  
+  &__link {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 400;
+    color: currentColor;
+    text-decoration: none;
+    transition: all .2s;
+    
+    &:hover {
+      font-weight: 800;
+    }
+  }
+}
+
+.social-list {
+  display: flex;
+  
+  &__link {
+    display: block;
+    
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+  }
+  
+  &__icon {
+    width: 25px;
+    height: 25px;
+    fill: #414c63;
+    
+    &:hover {
+      fill: #5500f2;
+    }
+  }
+  
+}
+
+.hero {
+  padding-bottom: 120px;
+  min-height: calc(100vh - 164px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  &__subtitle {
+    margin-top: auto;
+    margin-bottom: 34px;
+    font-size: 18px;
+    line-height: 1.66;
+    font-weight: 400;
+    color: #464d62;
+    opacity: 0.4;
+  }
+  
+  &__title {
+    font-size: 72px;
+    line-height: .83;
+    font-weight: 800;
+    color: #464e62;
+  }
+  
+  &__scroll {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 1.66;
+    font-weight: 700;
+    color: #464d62;
+  }
+  
+  
+  &__icon {
+    margin-left: 22px;
+    //width: 20px;
+    height: 30px;
+    fill: #464d62;
+  }
+}
+
+.hello {
+  padding-top: 50px;
+  padding-bottom: 270px;
+  
+  &__wrapper {
+    max-width: 977px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+  }
+  
+  &__left {
+    flex: 1 1 35%;
+  }
+  
+  &__right {
+    padding-left: 85px;
+    flex: 1 1 64%;
+  }
+  
+  &__avatar {
+    margin: 0 auto;
+    margin-bottom: 70px;
+  }
+  
+  &__subtitle {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #464d62;
+    opacity: 0.5;
+  }
+  
+  &__title {
+    margin-bottom: 27px;
+    font-size: 36px;
+    font-weight: 700;
+    color: #464d62;
+  }
+  
+  &__desc {
+    margin-bottom: 94px;
+    
+    p {
+      font-size: 16px;
+      line-height: 30px;
+      font-weight: 700;
+      color: #464d62;
+      opacity: 0.5;
+    }
+  }
+  
+  &__desclaimer {
+    position: relative;
+    
+    p {
+      font-size: 16px;
+      line-height: 30px;
+      font-style: italic;
+      color: #464d62;
+      opacity: 0.5;
+    }
+    
+    &::after {
+      content: '*';
+      left: -60px;
+      top: 11px;
+      position: absolute;
+      font-size: 48px;
+      line-height: 30px;
+      font-style: italic;
+      color: #db0200;
+      opacity: 0.1;
+    }
+  }
+  
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.about-info {
+  &__item {
+    display: flex;
+    font-size: 16px;
+    font-weight: 700;
+    color: #464d62;
+    
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  
+  &__label {
+    flex: 1 1 50%;
+    opacity: 0.3;
+  }
+  
+  &__value {
+    flex: 1 1 50%;
+  }
+}
