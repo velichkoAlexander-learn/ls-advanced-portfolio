@@ -1,0 +1,27 @@
+.nav {
+  
+  &__list {
+    display: flex;
+  }
+  
+  &__item {
+    color: #464d62;
+    
+    &:not(:last-child) {
+      margin-right: 60px;
+    }
+  }
+  
+  &__link {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 400;
+    color: currentColor;
+    text-decoration: none;
+    transition: all .2s;
+    
+    &:hover {
+      font-weight: 800;
+    }
+  }
+}

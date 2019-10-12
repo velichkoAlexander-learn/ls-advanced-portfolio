@@ -1,0 +1,32 @@
+.avatar {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user {
+  &__avatar {
+    margin: 0 auto 70px;
+  }
+  
+  &__item {
+    display: flex;
+    font-size: 16px;
+    font-weight: 600;
+    color: #464d62;
+    
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  
+  &__label {
+    flex: 1 1 50%;
+    opacity: 0.3;
+  }
+  
+  &__value {
+    flex: 1 1 50%;
+  }
+}
