@@ -149,5 +149,23 @@ html(lang="ru")
                         .slider__autor-info
                           .slider__name= review.author
                           .slider__position= review.position
-
-
+          section.contact
+            .container
+              .title.contact__title Связаться со мной
+              .contact__form
+                form.form(method="post" action="/")
+                  .input-row
+                    .input-wrapper
+                      input.input#name(type="text" name="name"  placeholder=" " required )
+                      +icon('user','input-icon')
+                      label.input-label(for="name") Введите ваше имя
+                    .input-wrapper
+                      input.input#email(type="email" name="email" placeholder=" "  required )
+                      +icon('envelope','input-icon')
+                      label.input-label(for="email") Введите ваш email
+                  .input-wrapper
+                    textarea.textarea#message(name="message" placeholder=" ")
+                    +icon('message','input-icon')
+                    label.input-label(for="message") Сообщение к письму
+                  .contact__btn
+                    button.btn.btn--main(type="submit") Отправить

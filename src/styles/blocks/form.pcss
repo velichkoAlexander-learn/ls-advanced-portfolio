@@ -1,0 +1,88 @@
+.form {
+
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+}
+.input-wrapper {
+  margin-bottom: 38px;
+  flex: 0 1 407px;
+  border-bottom: 2px solid #464d62;
+}
+
+.input {
+  width: 100%;
+  padding: 19px 19px 19px 46px;
+  font-size: 18px;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: 700;
+  color: #464d62;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  
+  &:focus ~ .input-label,
+  &:not(:placeholder-shown) ~ .input-label{
+    transform: translateY(calc(-50% - 30px));
+  }
+  
+  &:focus ~ .input-icon {
+    fill: #5500f2;
+  }
+}
+
+.input-icon {
+  position: absolute;
+  left: 0;
+  top: 30px;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  fill: rgba(#464d62, .3);
+  transition: fill .3s;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-label {
+  position: absolute;
+  top: 30px;
+  transform: translateY(-50%);
+  left: 0;
+  padding-left: 46px;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  color: rgba(#464d62, .3);
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform .3s;
+}
+
+.textarea {
+  min-height: 80px;
+  width: 100%;
+  padding: 19px 19px 19px 46px;
+  font-size: 18px;
+  line-height: 36px;
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  font-weight: 700;
+  color: #464d62;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  
+  &:focus ~ .input-label,
+  &:not(:placeholder-shown) ~ .input-label{
+    transform: translateY(calc(-50% - 30px));
+  }
+  
+  &:focus ~ .input-icon {
+    fill: #5500f2;
+  }
+}
