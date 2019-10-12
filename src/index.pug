@@ -169,3 +169,31 @@ html(lang="ru")
                     label.input-label(for="message") Сообщение к письму
                   .contact__btn
                     button.btn.btn--main(type="submit") Отправить
+        footer.footer
+          .container
+            .footer__container
+              .footer__left
+                .footer__copyright © 2019
+                .footer__info
+                  .footer__title Владимир<br>Астахов
+                  .footer__subtitle  Личный сайт<br>веб-разработчика
+              .footer__right
+                nav.nav.nav--footer.footer__nav
+                  ul.nav__list
+                    each item in menu
+                      li.nav__item
+                        a.nav__link(href="#" title="#{item}") #{item}
+                .footer__assets
+                  .footer__assets-left
+                    .footer__desc
+                      p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+                    .social-list.social-list--footer.footer__socials
+                      each item in socials
+                        a.social-list__link(href='#')
+                          +icon(`${item}`, 'social-list__icon')
+                  .footer__assets-right
+                    .footer__backquote
+                        backquote.backquote
+                          p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+                          cite.backquote__author Martin Golding
+
