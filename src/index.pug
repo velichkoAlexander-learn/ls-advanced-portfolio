@@ -11,6 +11,22 @@ include ./mixins.pug
   ['Возраст', '27 лет'],
   ['Родился', '1 января 1991'],
   ]
+  const reviews = [
+  {
+  desc: 'Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых ' +
+  'испытаний и бессонных ночей!',
+  author: 'Ковальчук Дмитрий',
+  position: 'Основатель Loftschool',
+  avatar: 'avatar1.png'
+  },
+  {
+  desc: 'Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах' +
+  'испытаний и бессонных ночей!',
+  author: 'Владимир Сабанцев',
+  position: 'Преподаватель',
+  avatar: 'avatar2.png'
+  }
+  ]
 
 <!DOCTYPE html>
 html(lang="ru")
@@ -83,7 +99,7 @@ html(lang="ru")
                           .skill__title !{skill}
         section.works
           .container
-            .works__title Мои работы
+            .works__title.title Мои работы
             .works__wrapper
               .works__left
                 .works-slider
@@ -108,3 +124,30 @@ html(lang="ru")
                 .works__desc
                   p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2<br>месяца только самых тяжелых<br> испытаний и бессонных ночей!
                 a.works__link(href="#") Посмотреть сайт
+        .bottom-wrapper
+          .triangles.triangles--top
+            svg.triangles__single(viewBox="0 0 1000 100" preserveAspectRatio="none")
+              polygon(points="0,0 500,100 1000,0")
+          section.about
+            .container
+              .about__header
+                .title Что обо мне говорят
+                .about__buttons
+                  .slider-controls
+                    .slider-controls__button.slider-controls__button--left
+                      +icon('arrow-down','slider-controls__icon')
+                    .slider-controls__button.slider-controls__button--right
+                      +icon('arrow-down','slider-controls__icon')
+              .about__slider
+                .slider
+                  each review in reviews
+                    .slider__item
+                      backquote.slider__desc= review.desc
+                      .slider__autor
+                        .slider__img
+                          +image(`${review.avatar}`, 'slider__image')
+                        .slider__autor-info
+                          .slider__name= review.author
+                          .slider__position= review.position
+
+

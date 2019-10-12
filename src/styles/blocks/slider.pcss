@@ -1,0 +1,54 @@
+.slider {
+  display: flex;
+  
+  &>*:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.slider__item {
+  max-width: 475px;
+  width: 100%;
+}
+
+
+.slider__desc {
+  margin-bottom: 32px;
+  padding-left: 95px;
+  display: block;
+  font-size: 16px;
+  line-height: 1.875;
+  font-weight: 600;
+  color: #464d62;
+  opacity: 0.5;
+  background: svg-load('quote.svg', fill=rgba(#464d62, .1), width=75px, height=63px);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.slider__autor {
+  padding-left: 95px;
+  display: flex;
+  align-items: center;
+}
+
+.slider__img {
+  overflow: hidden;
+  margin-right: 30px;
+  flex: 0 1 75px;
+}
+
+.slider__name {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 48px;
+  color: #464d62;
+}
+
+.slider__position {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 30px;
+  color: rgba(#464d62, 0.3);
+}
+
