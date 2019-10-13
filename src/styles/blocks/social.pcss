@@ -1,23 +1,24 @@
 .social-list {
   display: flex;
   
-  &__link {
-    display: block;
-    transition: all .3s;
-    
+  &__item {
     &:not(:last-child) {
       margin-right: 40px;
     }
+  }
+  
+  &__link {
+    display: block;
+    transition: all .3s;
     
     &:hover {
       .social-list__icon {
         fill: #5500f2;
       }
     }
-  
-
   }
 }
+
 .social-list__icon {
   width: 25px;
   height: 25px;
