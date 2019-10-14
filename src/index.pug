@@ -29,8 +29,34 @@ include ./mixins.pug
   ]
   const socials = ['insta', 'vk', 'github']
   const skills = [
-  ['Front-end', ['HTML5', 'CSS3', 'Javascript','Jquery<br> и Vue.js']],
-  ['Workflow', ['GIT', 'Terminal', 'Gulp','Webpack']],
+  ['Front-end', [
+  {title:'HTML5',
+  percent: 10
+  }, {
+  title:'CSS3',
+  percent: 20
+  }, {
+  title:'Javascript',
+  percent: 30
+  },
+  {
+  title:'Jquery<br> и Vue.js',
+  percent: 40
+  }
+  ]],
+  ['Workflow', [
+  {title:'GIT',
+  percent: 50
+  },
+  {title:'Terminal',
+  percent: 60
+  },
+  {title:'Gulp',
+  percent: 70
+  },
+  {title:'Webpack',
+  percent: 80
+  }]]
   ]
   const userInfo = [
   ['Проживаю', 'Новосибирск'],
@@ -122,8 +148,14 @@ html(lang="ru")
                               stop(offset="0%" stop-color="#9300e8" )
                               stop(offset="100%" stop-color="#4a00ed")
                             circle(r="65" cx="78" cy="78").skill__circle.skill__circle--position--under
-                            circle(r="65" cx="78" cy="78" stroke="url(#gradient)").skill__circle.skill__circle--position--above
-                          .skill__title !{skill}
+                            circle(
+                              r="65"
+                              cx="78"
+                              cy="78"
+                              stroke="url(#gradient)"
+                              stroke-dashoffset=`${255 - (skill.percent * 2.5)}`
+                            ).skill__circle.skill__circle--position--above
+                          .skill__title !{skill.title}
         section.works#works
           .container
             h2.works__title.title Мои работы
