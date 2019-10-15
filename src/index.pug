@@ -106,8 +106,8 @@ html(lang="ru")
         .top-wrapper#top
           section.hero
             .hero__content
-              h1.hero__subtitle Личный сайт<br>веб разработчика
-              h2.hero__title Величко<br>Александр
+              h1.hero__subtitle Личный сайт <span>веб разработчика</span>
+              h2.hero__title Величко <span>Александр</span>
             a.hero__scroll(href="#hello")
               | Скролл
               +icon('scroll', 'hero__icon')
@@ -193,9 +193,9 @@ html(lang="ru")
                 h2.title Что обо мне говорят
                 .about__buttons
                   .slider-controls
-                    button.slider-controls__button.slider-controls__button--left
+                    button.slider-controls__button.slider-controls__button--left(type="button")
                       +icon('arrow-down','slider-controls__icon')
-                    button.slider-controls__button.slider-controls__button--right
+                    button.slider-controls__button.slider-controls__button--right(type="button")
                       +icon('arrow-down','slider-controls__icon')
               .about__slider
                 .slider
