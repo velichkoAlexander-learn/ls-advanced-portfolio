@@ -4,4 +4,11 @@ mixin icon(name, className)
     use(xlink:href=icon.url)
 
 mixin image(path, className)
-  img(src=require(`images/${path}`) class=className)
+  img(src=require(`images/${path}`) class=className alt='alt')
+
+mixin triangles(className)
+  .triangles(class=`${className}`)
+    svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+      polygon(points="0,0 0,100 1000,100")
+    svg.triangles__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+      polygon(points="0,100 1000,100 1000,0")

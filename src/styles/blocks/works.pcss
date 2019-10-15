@@ -1,0 +1,165 @@
+.works {
+  padding-top: 80px;
+  padding-bottom: 120px;
+  
+  &__title {
+    margin-bottom: 90px;
+    font-size: 36px;
+    font-weight: 700;
+    color: #464d62;
+  }
+  
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  &__left {
+    flex: 0 1 66%;
+  }
+  
+  &__right {
+    flex: 0 1 25%;
+  }
+  
+  &__tags {
+    margin-bottom: 4.5rem;
+    display: flex;
+  }
+  
+  &__tag {
+    padding: 15px 20px;
+    background-color: rgba(#859ec2, 0.1);
+    border-radius: 23px;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: rgba(#464d62, .7);
+    
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+  
+  &__subtitle {
+    margin-bottom: 40px;
+    font-size: 30px;
+    line-height: 48px;
+    font-weight: 700;
+    color: #464d62;
+  }
+  
+  &__desc {
+    margin-bottom: 50px;
+    p {
+      font-size: 16px;
+      line-height: 30px;
+      font-weight: 400;
+      color: #464d62;
+      opacity: 0.7;
+    }
+  }
+  
+  &__link {
+    position: relative;
+    padding-left: 35px;
+    font-size: 18px;
+    line-height: 48px;
+    font-weight: 700;
+    color: #586ed3;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 15px;
+      height: 15px;
+      transform: translateY(-50%);
+      background: svg-load('link.svg', fill=#586ed3, width=100%, height=100%);
+    }
+  }
+}
+
+.works-slider {
+  display: flex;
+  flex-direction: column;
+  
+  &__active {
+    position: relative;
+  }
+  
+  &__preview {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 178px;
+    
+  }
+  
+  &__preview-item {
+    cursor: pointer;
+    
+    &--active {
+      border: 3px solid #dc9322;
+    }
+  }
+  
+  &__controls {
+    margin-left: auto;
+    display: flex;
+  }
+  
+  &__btn {
+    width: 50px;
+    height: 50px;
+    background-color: #353e4e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: #5500f2;
+    }
+    
+    &--up {
+      .works-slider__icon {
+        opacity: 0.3;
+        transform: rotate(90deg);
+      }
+    }
+    
+    &--down {
+      .works-slider__icon {
+        transform: rotate(-90deg);
+      }
+    }
+    
+    
+  }
+  
+  &__icon {
+    fill: #ffffff;
+    width: 10px;
+  }
+  &__number {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: -139px;
+    transform: translateY(-50%);
+    font-size: 400px;
+    line-height: 1;
+    font-weight: 800;
+    color: #e6e6e6;
+  }
+  
+  
+}

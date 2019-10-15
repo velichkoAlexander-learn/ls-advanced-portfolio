@@ -1,7 +1,87 @@
 include ./mixins.pug
+-
+  const menu = [
+
+  {
+  title:'Главная',
+  href: "#top"
+  },
+  {
+  title:'Обо мне',
+  href: "#hello"
+  },
+  {
+  title:'Навыки',
+  href: "#skills"
+  },
+  {
+  title:'Работы',
+  href: "#works"
+  },
+  {
+  title:'Отзывы',
+  href: "#reviews"
+  },
+  {
+  title:'Связаться',
+  href: "#contact"
+  }
+  ]
+  const socials = ['insta', 'vk', 'github']
+  const skills = [
+  ['Front-end', [
+  {title:'HTML5',
+  percent: 10
+  }, {
+  title:'CSS3',
+  percent: 20
+  }, {
+  title:'Javascript',
+  percent: 30
+  },
+  {
+  title:'Jquery<br> и Vue.js',
+  percent: 40
+  }
+  ]],
+  ['Workflow', [
+  {title:'GIT',
+  percent: 50
+  },
+  {title:'Terminal',
+  percent: 60
+  },
+  {title:'Gulp',
+  percent: 70
+  },
+  {title:'Webpack',
+  percent: 80
+  }]]
+  ]
+  const userInfo = [
+  ['Проживаю', 'Новосибирск'],
+  ['Возраст', '27 лет'],
+  ['Родился', '1 января 1991'],
+  ]
+  const reviews = [
+  {
+  desc: 'Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых ' +
+  'испытаний и бессонных ночей!',
+  author: 'Ковальчук Дмитрий',
+  position: 'Основатель Loftschool',
+  avatar: 'avatar1.png'
+  },
+  {
+  desc: 'Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах' +
+  'испытаний и бессонных ночей!',
+  author: 'Владимир Сабанцев',
+  position: 'Преподаватель',
+  avatar: 'avatar2.png'
+  }
+  ]
 
 <!DOCTYPE html>
-html(lang="en")
+html(lang="ru")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
@@ -9,7 +89,171 @@ html(lang="en")
     title Portfolio | main page
   body
     .wrapper
-      .maincontent
-        +image('content/user.jpg', 'user-pic')
-        +icon('link', 'link-class')
-        .icon-bg
+      main
+        header.header
+          .container.header__container
+            .logo.header__logo ВА
+            nav.nav.header__nav
+              ul.nav__list
+                each item in menu
+                  li.nav__item
+                    a.nav__link(href=`${item.href}` title=`${item.title}`) #{item.title}
+            ul.social-list.header__socials
+              each item in socials
+                li.social-list__item
+                  a.social-list__link(href='#' target="_blank")
+                    +icon(`${item}`, 'social-list__icon')
+        .top-wrapper#top
+          section.hero
+            .hero__content
+              h1.hero__subtitle Личный сайт <span>веб разработчика</span>
+              h2.hero__title Величко <span>Александр</span>
+            a.hero__scroll(href="#hello")
+              | Скролл
+              +icon('scroll', 'hero__icon')
+          section.hello#hello
+            .hello__wrapper
+              .hello__user
+                .user
+                  .avatar.user__avatar
+                    +image('content/user.jpg', 'avatar__img')
+                  ul.user__info.hello__info
+                    each item in userInfo
+                      li.user__item
+                        .user__label #{item[0]}:
+                        .user__value #{item[1]}
+              .hello__greetings
+                h3.hello__subtitle Привет, меня зовут
+                h2.hello__title  Величко Александр
+                .hello__desc
+                  p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                .hello__disclaimer
+                  p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+        +triangles('')
+        section.skills#skills
+          .container
+            h2.skills__title Чем я могу быть полезен вам
+            .skills__desc
+              p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .skills__wrapper
+              .skills-list.skills__list
+                each item in skills
+                  .skills-list__title #{item[0]}
+                  .skills-list__row
+                    each skill in item[1]
+                      .skills-list__item
+                        .skill
+                          svg(viewBox="0 0 156 156" preserveAspectRatio="none").skill__shape
+                            linearGradient#gradient(x1="100%" y1="50%" x2="0" y2="50%")
+                              stop(offset="0%" stop-color="#9300e8" )
+                              stop(offset="100%" stop-color="#4a00ed")
+                            circle(r="65" cx="78" cy="78").skill__circle.skill__circle--position--under
+                            circle(
+                              r="65"
+                              cx="78"
+                              cy="78"
+                              stroke="url(#gradient)"
+                              stroke-dashoffset=`${255 - (skill.percent * 2.5)}`
+                            ).skill__circle.skill__circle--position--above
+                          .skill__title !{skill.title}
+        section.works#works
+          .container
+            h2.works__title.title Мои работы
+            .works__wrapper
+              .works__left
+                .works-slider
+                  .works-slider__active
+                    .works-slider__number 4
+                    +image(`worksPreview/1.jpg`,'works-slider__active-img')
+                    .works-slider__preview
+                      - for(let i =4;i>0;i--)
+                      +image(`worksPreview/${i}.jpg`,`works-slider__preview-item
+                          ${i == 1 ? 'works-slider__preview-item--active' : ''}`)
+                  .works-slider__controls
+                    .works-slider__btn.works-slider__btn--up
+                      +icon('arrow-down','works-slider__icon')
+                    .works-slider__btn.works-slider__btn--down
+                      +icon('arrow-down','works-slider__icon')
+              .works__right
+                .works__tags
+                  span.works__tag HTML
+                  span.works__tag CSS
+                  span.works__tag Javascript
+                h3.works__subtitle Сайт школы<br>образования
+                .works__desc
+                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2<br>месяца только самых тяжелых<br> испытаний и бессонных ночей!
+                a.works__link(href="#") Посмотреть сайт
+        .bottom-wrapper
+          .triangles.triangles--top
+            svg.triangles__single(viewBox="0 0 1000 100" preserveAspectRatio="none")
+              polygon(points="0,0 500,100 1000,0")
+          section.about#reviews
+            .container
+              .about__header
+                h2.title Что обо мне говорят
+                .about__buttons
+                  .slider-controls
+                    button.slider-controls__button.slider-controls__button--left(type="button")
+                      +icon('arrow-down','slider-controls__icon')
+                    button.slider-controls__button.slider-controls__button--right(type="button")
+                      +icon('arrow-down','slider-controls__icon')
+              .about__slider
+                .slider
+                  each review in reviews
+                    .slider__item
+                      backquote.slider__desc= review.desc
+                      .slider__autor
+                        .slider__img
+                          +image(`${review.avatar}`, 'slider__image')
+                        .slider__autor-info
+                          .slider__name= review.author
+                          .slider__position= review.position
+          section.contact#contact
+            .container
+              h2.title.contact__title Связаться со мной
+              .contact__form
+                form.form(method="post" action="/")
+                  .input-row
+                    .input-wrapper
+                      input.input#name(type="text" name="name"  placeholder=" " required )
+                      +icon('user','input-icon')
+                      label.input-label(for="name") Введите ваше имя
+                    .input-wrapper
+                      input.input#email(type="email" name="email" placeholder=" "  required )
+                      +icon('envelope','input-icon')
+                      label.input-label(for="email") Введите ваш email
+                  .input-wrapper
+                    textarea.textarea#message(name="message" placeholder=" ")
+                    +icon('message','input-icon')
+                    label.input-label(for="message") Сообщение к письму
+                  .contact__btn
+                    button.btn.btn--main(type="submit") Отправить
+        footer.footer
+          .container
+            .footer__container
+              .footer__left
+                .footer__copyright © 2019
+                .footer__info
+                  .footer__title Владимир<br>Астахов
+                  .footer__subtitle  Личный сайт<br>веб-разработчика
+              .footer__right
+                nav.nav.nav--footer.footer__nav
+                  ul.nav__list
+                    each item in menu
+                      li.nav__item
+                        a.nav__link(href=`${item.href}` title=`${item.title}`) #{item.title}
+                .footer__assets
+                  .footer__assets-left
+                    .footer__desc
+                      p Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+                    ul.social-list.social-list--footer.footer__socials
+                      each item in socials
+                        li.social-list__item
+                          a.social-list__link(href='#' target="_blank")
+                            +icon(`${item}`, 'social-list__icon')
+                  .footer__assets-right
+                    .footer__backquote
+                      backquote.backquote
+                        p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+                        cite.backquote__author Martin Golding
+
