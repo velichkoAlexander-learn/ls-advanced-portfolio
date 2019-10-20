@@ -1,8 +1,16 @@
 .skills {
   padding-top: 150px;
   padding-bottom: 90px;
+  @include tablets() {
+    padding-top: 120px;
+  }
   
   background: url("../images/Backpack.png")  0 75% no-repeat;
+  
+  @include desktop() {
+    background: url("../images/Backpack.png")  -45% 75% no-repeat;
+    background: none;
+  }
   
   
   &__title {
@@ -13,6 +21,11 @@
     line-height: 36px;
     font-weight: 700;
     color: #464d62;
+  
+    @include tablets() {
+      text-align: center;
+      max-width: 300px;
+    }
   }
   
   &__desc {
@@ -24,6 +37,13 @@
     font-weight: 600;
     color: #464d62;
     opacity: 0.5;
+    
+    @include tablets() {
+      text-align: center;
+      max-width: 500px;
+      margin: 0 auto 60px;
+    }
+    
   }
   
   &__wrapper {
@@ -33,6 +53,11 @@
   &__list {
     margin-left: auto;
     margin-right: 95px;
+  
+    @include tablets() {
+      margin-right: 0;
+      max-width: 590px;
+    }
   }
 }
 
@@ -46,6 +71,10 @@
     line-height: 1;
     font-weight: 700;
     color: #464d62;
+  
+    @include tablets() {
+      text-align: center;
+    }
   }
   
   &__wrapper {

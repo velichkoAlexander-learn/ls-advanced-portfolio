@@ -31,8 +31,11 @@ body {
 .container {
   margin: 0 auto;
   max-width: 1480px;
-  //width: 95%;
-   width: 1490px;
+  width: 95%;
+  
+  @include tablets {
+    width: 89%;
+  }
 
   @include phones {
     width: 85%;

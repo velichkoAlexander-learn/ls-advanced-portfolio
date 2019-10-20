@@ -24,12 +24,22 @@
   background: svg-load('quote.svg', fill=rgba(#464d62, .1), width=75px, height=63px);
   background-repeat: no-repeat;
   background-position: 0 0;
+  
+  @include tablets() {
+    padding-left: 40px;
+    background: svg-load('quote.svg', fill=rgba(#464d62, .1), width=30px, height=26px);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
 }
 
 .slider__autor {
   padding-left: 95px;
   display: flex;
   align-items: center;
+  @include tablets() {
+    padding-left: 40px;
+  }
 }
 
 .slider__img {

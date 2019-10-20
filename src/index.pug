@@ -72,7 +72,7 @@ include ./mixins.pug
   avatar: 'avatar1.png'
   },
   {
-  desc: 'Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах' +
+  desc: 'Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах ' +
   'испытаний и бессонных ночей!',
   author: 'Владимир Сабанцев',
   position: 'Преподаватель',
@@ -103,6 +103,10 @@ html(lang="ru")
                 li.social-list__item
                   a.social-list__link(href='#' target="_blank")
                     +icon(`${item}`, 'social-list__icon')
+            .header__hamburger
+              button.hamburger(type="button")
+                span
+
         .top-wrapper#top
           section.hero
             .hero__content
@@ -112,23 +116,24 @@ html(lang="ru")
               | Скролл
               +icon('scroll', 'hero__icon')
           section.hello#hello
-            .hello__wrapper
-              .hello__user
-                .user
-                  .avatar.user__avatar
-                    +image('content/user.jpg', 'avatar__img')
-                  ul.user__info.hello__info
-                    each item in userInfo
-                      li.user__item
-                        .user__label #{item[0]}:
-                        .user__value #{item[1]}
-              .hello__greetings
-                h3.hello__subtitle Привет, меня зовут
-                h2.hello__title  Величко Александр
-                .hello__desc
-                  p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                .hello__disclaimer
-                  p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .container
+              .hello__wrapper
+                .hello__user
+                  .user
+                    .avatar.user__avatar
+                      +image('content/user.jpg', 'avatar__img')
+                    ul.user__info.hello__info
+                      each item in userInfo
+                        li.user__item
+                          .user__label #{item[0]}:
+                          .user__value #{item[1]}
+                .hello__greetings
+                  h3.hello__subtitle Привет, меня зовут
+                  h2.hello__title  Величко Александр
+                  .hello__desc
+                    p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                  .hello__disclaimer
+                    p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
         +triangles('')
         section.skills#skills
           .container
@@ -179,9 +184,9 @@ html(lang="ru")
                   span.works__tag HTML
                   span.works__tag CSS
                   span.works__tag Javascript
-                h3.works__subtitle Сайт школы<br>образования
+                h3.works__subtitle Сайт школы образования
                 .works__desc
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2<br>месяца только самых тяжелых<br> испытаний и бессонных ночей!
+                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
                 a.works__link(href="#") Посмотреть сайт
         .bottom-wrapper
           .triangles.triangles--top
