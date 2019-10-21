@@ -1,4 +1,6 @@
 .hero {
+  position: relative;
+  z-index: 10 ;
   padding-bottom: 120px;
   height: 100vh;
   min-height: 650px;
@@ -7,6 +9,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+
   
   @include desktop() {
     text-align: left;
@@ -59,7 +62,7 @@
   &__title {
     font-size: 72px;
     line-height: .83;
-    font-weight: 700;
+    font-weight: 800;
     color: #464e62;
   }
   

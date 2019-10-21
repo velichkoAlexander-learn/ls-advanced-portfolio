@@ -1,0 +1,125 @@
+.parallax {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+.parallax__layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: tansform;
+}
+
+.parallax--mountains {
+  .parallax__layer {
+    &:nth-child(1) {
+      .parallax__img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-100px);
+      }
+    }
+    
+    &:nth-child(2) {
+      .parallax__img {
+        right: 0;
+        top: 12vw;
+      }
+    }
+    
+    &:nth-child(3) {
+      .parallax__img {
+        top: 21vw;
+        left: 50%;
+        margin-left: 16%;
+      }
+    }
+    
+    &:nth-child(4) {
+      .parallax__img {
+        left: 0;
+        top: 24.5vw;
+      }
+    }
+    
+    &:nth-child(5) {
+      .parallax__img {
+        top: 30vw;
+        left: 0;
+      }
+    }
+    
+    &:nth-child(6) {
+      .parallax__img {
+        top: 39vw;
+        right: 0;
+      }
+    }
+    
+    &:nth-child(7) {
+      .parallax__img {
+        top: 70%;
+        left: 0;
+      }
+    }
+  }
+}
+
+.parallax--buddha {
+  .parallax__layer {
+    &:nth-child(1) {
+      .parallax__img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        //transform: translateY(-100px);
+      }
+    }
+    
+    &:nth-child(2) {
+      .parallax__img {
+        right: 0;
+        bottom: 0;
+      }
+    }
+    
+    &:nth-child(3) {
+      .parallax__img {
+        top: 16vw;
+        left: 50%;
+        margin-left: 16%;
+      }
+    }
+    
+    &:nth-child(4) {
+      .parallax__img {
+        left: 0;
+        bottom: 0;
+      }
+    }
+    
+    &:nth-child(5) {
+      .parallax__img {
+        bottom: 0;
+        left: 0;
+      }
+    }
+    
+    &:nth-child(6) {
+      .parallax__img {
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+}
+
+.parallax__img {
+  position: absolute;
+}
