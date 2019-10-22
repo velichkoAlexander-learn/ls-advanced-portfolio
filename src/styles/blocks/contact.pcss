@@ -4,6 +4,10 @@
 }
 .contact__title {
   margin-bottom: 90px;
+  
+  @include tablets() {
+    text-align: center;
+  }
 }
 
 .contact__form {
@@ -13,4 +17,8 @@
 
 .contact__btn {
   margin-top: 60px;
+  @include tablets() {
+    display: flex;
+    justify-content: center;
+  }
 }

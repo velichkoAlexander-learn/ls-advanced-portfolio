@@ -15,6 +15,7 @@
   
   &:hover {
     border-color: #5500f2;
+    
     .slider-controls__icon {
       fill: #5500f2;
     }
@@ -23,6 +24,13 @@
   &--left {
     margin-right: 30px;
     transform: rotate(180deg);
+  }
+  
+  &:disabled {
+    border-color: hsla(0, 0%, 80%, .9);
+    .slider-controls__icon {
+      fill: #hsla(0, 0%, 80%, .9);
+    }
   }
 }
 

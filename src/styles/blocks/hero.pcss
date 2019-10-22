@@ -1,4 +1,6 @@
 .hero {
+  position: relative;
+  z-index: 10 ;
   padding-bottom: 120px;
   height: 100vh;
   min-height: 650px;
@@ -7,6 +9,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+
+  
+  @include desktop() {
+    text-align: left;
+  }
+  
+  @include tablets() {
+    text-align: center;
+  }
   
   &__content {
     flex: 1;
@@ -14,9 +25,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
     span {
       display: block;
     }
+    
+    @include desktop() {
+      flex-direction: row;
+    }
+    @include tablets() {
+      flex-direction: column;
+    }
+    
+    
   }
   
   &__subtitle {
@@ -26,12 +47,22 @@
     font-weight: 600;
     color: #464d62;
     opacity: 0.4;
+    
+    @include desktop() {
+      text-align: right;
+      margin-right: 60px;
+    }
+    
+    @include tablets() {
+      text-align: center;
+      margin-right: 0;
+    }
   }
   
   &__title {
     font-size: 72px;
     line-height: .83;
-    font-weight: 700;
+    font-weight: 800;
     color: #464e62;
   }
   

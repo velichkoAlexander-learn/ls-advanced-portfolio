@@ -1,6 +1,12 @@
 .hello {
+  position: relative;
+  z-index: 10;
   padding-top: 50px;
   padding-bottom: 270px;
+  
+  @include tablets() {
+    padding-bottom: 210px;
+  }
   
   &__wrapper {
     max-width: 977px;
@@ -11,11 +17,19 @@
   
   &__user {
     flex: 1 1 35%;
+    
+    @include tablets() {
+      flex: 2;
+    }
   }
   
   &__greetings {
     padding-left: 85px;
     flex: 1 1 64%;
+    
+    @include tablets() {
+      flex: 4;
+    }
   }
   
   &__subtitle {

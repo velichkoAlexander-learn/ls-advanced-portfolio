@@ -1,0 +1,20 @@
+script(type="text/x-template")#carousel
+  Carousel.slider(
+    :navigationEnabled="true"
+    :paginationEnabled="false"
+    :perPageCustom="[[0,1],[769,2]]"
+    @pageChange="pageChange"
+  )
+    Slide(v-for='review in reviews' :key="review.id")
+      carouselItem(:review="review")
+
+
+script(type="text/x-template")#carousel-item
+  .slider__item
+    p.slider__desc {{review.text}}
+    .slider__autor
+      .slider__img
+        img(:src="review.photo" :alt="review.author").slider__image
+      .slider__autor-info
+        .slider__name {{review.author}}
+        .slider__position {{review.occ}}
