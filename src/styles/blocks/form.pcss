@@ -5,6 +5,10 @@
 .input-row {
   display: flex;
   justify-content: space-between;
+  
+  @include phones() {
+    flex-direction: column;
+  }
 }
 .input-wrapper {
   margin-bottom: 38px;

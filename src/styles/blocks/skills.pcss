@@ -5,6 +5,10 @@
     padding-top: 120px;
   }
   
+  @include phones() {
+    padding-bottom: 50px;
+  }
+  
   background: url("../images/Backpack.png")  0 75% no-repeat;
   
   @include desktop() {
@@ -21,11 +25,15 @@
     line-height: 36px;
     font-weight: 700;
     color: #464d62;
-  
     @include tablets() {
       text-align: center;
       max-width: 300px;
     }
+    
+    @incluid phones() {
+      text-align: left;
+    }
+
   }
   
   &__desc {
@@ -44,6 +52,9 @@
       margin: 0 auto 60px;
     }
     
+    @incluid phones() {
+      text-align: left;
+    }
   }
   
   &__wrapper {
@@ -102,8 +113,14 @@
   &__items {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     
-
+    
+    @incluid phones() {
+      & > * {
+        flex: 1 1 50%;
+      }
+    }
   }
   
 }
