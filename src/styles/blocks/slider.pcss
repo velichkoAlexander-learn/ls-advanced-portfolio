@@ -31,6 +31,11 @@
     background-repeat: no-repeat;
     background-position: 0 0;
   }
+  @include phones() {
+    padding-left: 0;
+    background: none;
+  }
+  
 }
 
 .slider__autor {
@@ -40,6 +45,9 @@
   @include tablets() {
     padding-left: 40px;
   }
+  @include phones() {
+    padding-left: 0;
+  }
 }
 
 .slider__img {
@@ -47,6 +55,10 @@
   margin-right: 30px;
   flex: 0 0 75px;
   border-radius: 50%;
+  
+  @include phones() {
+    flex: 0 0 50px;
+  }
 }
 
 .slider__name {

@@ -57,6 +57,12 @@
       text-align: center;
       margin-right: 0;
     }
+  
+    @include phones() {
+      margin-bottom: 20px;
+      font-size: 14px;
+      line-height: 1.71;
+    }
   }
   
   &__title {
@@ -64,6 +70,11 @@
     line-height: .83;
     font-weight: 800;
     color: #464e62;
+    
+    @include phones() {
+      font-size: 36px;
+      line-height: 1.33;
+    }
   }
   
   &__scroll {
