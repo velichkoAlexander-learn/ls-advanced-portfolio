@@ -15,7 +15,6 @@ function moveLayersDependsOnScroll(parallax) {
     
     if (windowOffset >= parallaxOffsetTop && windowOffset <= parallaxOffsetBottom) {
         Array.from(parallax.children).forEach(layer => {
-            console.log(layer);
             const divider = layer.dataset.speed;
             const strafe = scroll * divider / 10;
 

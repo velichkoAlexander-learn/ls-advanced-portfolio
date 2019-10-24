@@ -60,6 +60,22 @@ html(lang="ru")
   body
     .wrapper
       main
+        .mobile-menu
+          button.mobile-menu__btn-close(type="button")
+          .mobile-menu__wrapper
+            nav.nav.mobile-menu__nav
+              ul.nav__list
+                each item in menu
+                  li.nav__item
+                    a.nav__link(href=`${item.href}` title=`${item.title}`) #{item.title}
+            .mobile-menu__socials
+              ul.social-list
+                each item in socials
+                  li.social-list__item
+                    a.social-list__link(href='#' target="_blank")
+                      +icon(`${item}`, 'social-list__icon')
+
+
         header.header
           .container.header__container
             .logo.header__logo ВА
