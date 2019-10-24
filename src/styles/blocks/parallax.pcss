@@ -3,10 +3,17 @@
   top: 0;
   bottom: 0;
   width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  
   @include tablets() {
     display: none;
   }
   overflow: hidden;
+  
+  &--montains {
+    min-width: 1800px;
+  }
 }
 
 
@@ -35,6 +42,7 @@
       .parallax__img {
         right: 0;
         top: 12vw;
+        width: 100%;
       }
     }
     
@@ -64,6 +72,7 @@
       .parallax__img {
         top: 39vw;
         right: 0;
+
       }
     }
     
@@ -71,12 +80,14 @@
       .parallax__img {
         top: 70%;
         left: 0;
+        width: 100%;
       }
     }
   }
 }
 
 .parallax--buddha {
+  min-width: 1800px;
   .parallax__layer {
     &:nth-child(1) {
       .parallax__img {
@@ -90,36 +101,36 @@
     &:nth-child(2) {
       .parallax__img {
         right: 0;
-        bottom: -20%;
+        bottom: -272PX;
       }
     }
     
     &:nth-child(3) {
       .parallax__img {
-        top: 26vw;
+        top: 550px;
         left: 50%;
-        margin-left: 16%;
+        margin-left: 8%;
       }
     }
     
     &:nth-child(4) {
       .parallax__img {
         left: 0;
-        bottom: -20%;
+        bottom: -272PX;
       }
     }
     
     &:nth-child(5) {
       .parallax__img {
         left: 0;
-        bottom: -20%;
+        bottom: -272PX;
       }
     }
     
     &:nth-child(6) {
       .parallax__img {
         right: 0;
-        bottom: -20%;
+        bottom: -272PX;
       }
     }
   
