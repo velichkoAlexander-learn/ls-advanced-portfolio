@@ -78,6 +78,8 @@
   }
   
   &__scroll {
+    position: relative;
+    z-index: 10;
     display: flex;
     align-items: center;
     font-size: 18px;
@@ -85,6 +87,9 @@
     font-weight: 600;
     color: #464d62;
     text-decoration: none;
+    @include phones() {
+      display: none;
+    }
     
     &:hover {
       color: #5500f2;
