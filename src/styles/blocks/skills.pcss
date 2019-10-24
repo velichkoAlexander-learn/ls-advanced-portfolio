@@ -16,6 +16,7 @@
     background: none;
   }
   
+ 
   
   &__title {
     width: 100%;
@@ -123,6 +124,26 @@
     }
     
   }
+  &__item {
+    display: flex;
+    justify-content: center;
+  }
   
 }
+.skills__backpack-wrapper {
+  padding-top: 120px;
+  margin: 0 auto;
+  max-width: 316px;
+  width: 100%;
+}
 
+
+.skills__backpack {
+  padding-bottom: 89%;
+  background: url("../images/Backpack.png")  center no-repeat;
+  background-size: 100%;
+  
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+}
