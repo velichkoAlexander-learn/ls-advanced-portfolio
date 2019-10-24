@@ -15,6 +15,7 @@ function moveLayersDependsOnScroll(parallax) {
     
     if (windowOffset >= parallaxOffsetTop && windowOffset <= parallaxOffsetBottom) {
         Array.from(parallax.children).forEach(layer => {
+            console.log(layer);
             const divider = layer.dataset.speed;
             const strafe = scroll * divider / 10;
 
@@ -28,18 +29,5 @@ if (windowWidth > 768) {
         Array.from(parallax).forEach(parallax => {
             moveLayersDependsOnScroll(parallax);
         });
-    });
-}
-
-
-function getExtraTopMargin(parallax, percent) {
-    const parallaxHeight = parallax.clientHeight;
-    
-    [...parallax.children].forEach(layer => {
-        const layerTop = getComputedStyle(layer.children[0]).getPropertyValue('top').replace('px', '');
-        const layerSpeed = layer.dataset.speed;
-        
-        layer.children[0].style.top = (parallaxHeight * 2 * +layerSpeed + +layerTop) + 'px';
-        console.log(parallaxHeight * (percent / 100 + 1.0) * +layerSpeed + +layerTop);
     });
 }
