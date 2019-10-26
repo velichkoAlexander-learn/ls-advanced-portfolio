@@ -73,9 +73,14 @@
 
   .container {
     max-width: 1110px;
-    width: calc(100% - 30px);
+    width: 100%;
     padding: 0 15px;
     margin: 0 auto;
+
+    @media screen and (max-width: 570px) {
+      width: 100%;
+      padding: 0 20px;
+    }
   }
 
   /* header */
@@ -123,6 +128,9 @@
     color: rgba(#ffffff, 0.7);
     border-bottom: 1px solid currentColor;
     transition: color .25s;
+    @media screen and (max-width: 570px) {
+      font-size: 14px;
+    }
 
     &:hover {
       border: none;
@@ -155,6 +163,10 @@
     font-size: 18px;
     font-weight: 400;
     color: #ffffff;
+
+    @media screen and (max-width: 570px) {
+      font-size: 16px;
+    }
   }
 
   .user__logout {
@@ -173,6 +185,9 @@
 
   .main-menu__list {
     display: flex;
+    @media screen and (max-width: 420px) {
+      justify-content: space-between;
+    }
   }
 
   .main-menu__item {
@@ -208,6 +223,11 @@
     color: currentColor;
     display: inline-block;
     text-decoration: none;
+
+    @media screen and (max-width: 570px) {
+      padding: 30px 17px;
+      font-size: 14px;
+    }
 
     &::after {
       display: block;
