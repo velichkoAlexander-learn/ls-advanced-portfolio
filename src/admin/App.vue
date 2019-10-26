@@ -1,19 +1,27 @@
 <template lang="pug">
-  header.header
-    .container.header__container
-      .header__user
-        .user
-          .user__avatar
-            img(src="../images/content/user.jpg" alt="user")
-          .user__info
-            .user__name Владимир Астаханов
-            .user__logout
-              a.logout(href="#") Выйти
-      .header__title Панель администрирования
-      .header__logout
-        a.logout(href="#") Выйти
-
-
+  .wrapper
+    header.header
+      .container.header__container
+        .header__user
+          .user
+            .user__avatar
+              img(src="../images/content/user.jpg" alt="user")
+            .user__info
+              .user__name Владимир Астаханов
+              .user__logout
+                a.logout(href="#" title="Выйти") Выйти
+        .header__title Панель администрирования
+        .header__logout
+          a.logout(href="#" title="Выйти") Выйти
+    nav.main-menu
+      .container.main-menu__container
+        ul.main-menu__list
+          li.main-menu__item.main-menu__item--active
+            a.main-menu__link(href="#" title="Обо мне") Обо мне
+          li.main-menu__item
+            a.main-menu__link(href="#" title="Работы") Работы
+          li.main-menu__item
+            a.main-menu__link(href="#" title="Отзывы") Отзывы
 </template>
 
 <style lang="postcss">
@@ -37,6 +45,16 @@
     background-color: rgba(255, 255, 255, 0.9);
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
   a {
     color: inherit;
     cursor: pointer;
@@ -47,10 +65,10 @@
     max-width: 100%;
     max-height: 100%;
   }
-  .maincontent {
-    overflow: hidden;
-    min-height: 100%;
-    position: relative;
+
+  .wrapper {
+    background-color: #f7f9fe;
+    min-height: 100vh;
   }
 
   .container {
@@ -111,6 +129,7 @@
       color: rgba(#ffffff, .9);
     }
   }
+
   /* end logout */
 
   /* user */
@@ -129,6 +148,7 @@
     height: 45px;
     overflow: hidden;
     border-radius: 50%;
+    flex-shrink: 0;
   }
 
   .user__name {
@@ -144,6 +164,60 @@
   }
 
   /*  end user */
+
+  /* main-menu */
+
+  .main-menu {
+    background-color: #ffffff;
+  }
+
+  .main-menu__list {
+    display: flex;
+  }
+
+  .main-menu__item {
+    position: relative;
+    color: #414c63;
+    font-weight: 400;
+
+    &:hover {
+      font-weight: 600;
+    }
+
+    &--active {
+      color: #383bcf;
+      font-weight: 600;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background-color: currentColor;
+      }
+    }
+  }
+
+  .main-menu__link {
+    padding: 30px;
+    font-size: 16px;
+    line-height: 1.88;
+    font-weight: inherit;
+    color: currentColor;
+    display: inline-block;
+    text-decoration: none;
+
+    &::after {
+      display: block;
+      content: attr(title);
+      font-weight: 600;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+  }
 
 
 </style>
