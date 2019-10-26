@@ -1,0 +1,33 @@
+.control-btns {
+
+}
+
+.control-btn {
+  padding: 0;
+  border: none;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 700;
+  @media screen and (max-width: 470px) {
+    font-size: 14px;
+  }
+  
+  
+  &--cancel {
+    padding: 24px 60px;
+
+    color: #383bcf;
+  
+    @media screen and (max-width: 470px) {
+      padding: 24px 25px;
+    }
+  }
+  
+  &--save {
+    padding: 24px 40px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-image: linear-gradient(to right, #006aed 0%, #3f35cb 100%);
+    border-radius: 30px;
+  }
+}
