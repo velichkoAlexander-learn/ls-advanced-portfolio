@@ -22,6 +22,12 @@
             a.main-menu__link(href="#" title="Работы") Работы
           li.main-menu__item
             a.main-menu__link(href="#" title="Отзывы") Отзывы
+    .page-title
+      .container.page-title__container
+        .page-title__item Блок «Обо мне»
+        .page-title__button
+          button.add-button(type="button") Добавить группу
+
 </template>
 
 <style lang="postcss">
@@ -238,6 +244,73 @@
       visibility: hidden;
     }
   }
+/*  page-title */
+  .page-title {
+    padding: 60px 0;
+
+    @media screen and (max-width: 570px) {
+      padding: 40px 0;
+    }
+  }
+
+  .page-title__container {
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 570px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  .page-title__item {
+    margin-right: 60px;
+    font-size: 21px;
+    font-weight: 700;
+    color: #414c63;
+    @media screen and (max-width: 570px) {
+      font-size: 18px;
+      line-height: 1;
+      margin-bottom: 30px;
+    }
+
+  }
+
+/*  end page-title */
+/*  add-button*/
+  .add-button {
+    padding-left: 34px;
+    position: relative;
+    font-size: 16px;
+    line-height: 2.12;
+    font-weight: 600;
+    color: #383bcf;
+    background-color: transparent;
+    border: none;
+    @media screen and (max-width: 570px) {
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    &::after {
+    content: '+';
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 21px;
+      height: 21px;
+      font-size: 15px;
+      line-height: 1.01;
+      font-weight: 400;
+      color: #ffffff;
+      background-image: linear-gradient(to right, #006aed 0%, #3f35cb 100%);
+      border-radius: 50%;
+    }
+  }
+/*  end add-button*/
 
 
 </style>
