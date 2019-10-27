@@ -1,4 +1,5 @@
 .works {
+  margin-bottom: 30px;
   padding-top: 30px;
 }
 .works__form {
@@ -21,4 +22,16 @@
   line-height: 1;
   font-weight: 700;
   color: #414c63;
+}
+
+.works__list {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat( auto-fit, minmax(340px, 1fr) );
+  
+  @media screen and (max-width: 470px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 0 -20px;
+  }
 }

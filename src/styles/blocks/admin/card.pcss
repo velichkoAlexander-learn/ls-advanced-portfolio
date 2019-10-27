@@ -1,0 +1,124 @@
+.card {
+  background-color: #ffffff;
+  box-shadow: 4px 3px 20px rgba(0, 0, 0, 0.07);
+}
+
+.card__hero {
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative;
+  height: 190px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  
+}
+
+.card__hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.card__hero-tags {
+  position: relative;
+  z-index: 10;
+}
+
+.card__body {
+  padding: 30px;
+  font-size: 16px;
+  line-height: 1.88;
+  font-weight: 600;
+  color: rgba(#414c63, .7);
+  @media screen and (max-width: 470px) {
+    line-height: 1.71;
+    padding: 20px;
+  }
+  
+  h2 {
+    margin-bottom: 25px;
+    font-size: 18px;
+    line-height: 1.67;
+    font-weight: 700;
+    color: #414c63;
+  
+    @media screen and (max-width: 470px) {
+      margin-bottom: 15px;
+    }
+  }
+  
+  p {
+    margin-bottom: 30px;
+  }
+  
+  a {
+    font-size: 16px;
+    line-height: 1.88;
+    font-weight: 600;
+    color: #383bcf;
+    text-decoration: none;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.card__footer {
+  padding: 0 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  
+  @media screen and (max-width: 470px) {
+    padding: 0 20px 30px;
+  }
+}
+
+.card__btn {
+  padding-left: 0;
+  padding-right: 28px;
+  position: relative;
+  font-size: 16px;
+  line-height: 1.88;
+  font-weight: 400;
+  color: rgba(#414c63, .5);
+  transition: color .25s;
+  background-color: transparent;
+  border:none;
+  
+  &:hover {
+    color: #414c63;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+  }
+}
+
+.card__btn--edit {
+  &::after {
+    width: 17px;
+    height: 17px;
+    background: svg-load('pencil.svg', fill=#383bcf, width=100%, height=100%);
+  }
+}
+
+.card__btn--remove {
+  &::after {
+    width: 15px;
+    height: 15px;
+    background: svg-load('Cross.svg', fill=#c92e2e, width=100%, height=100%);
+  }
+}
