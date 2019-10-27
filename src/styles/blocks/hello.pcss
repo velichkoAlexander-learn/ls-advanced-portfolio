@@ -1,21 +1,55 @@
 .hello {
+  position: relative;
+  z-index: 10;
   padding-top: 50px;
   padding-bottom: 270px;
+  
+  
+  @include tablets() {
+    padding-bottom: 210px;
+  }
+  
+  @include phones() {
+    padding-bottom: 100px;
+  }
   
   &__wrapper {
     max-width: 977px;
     width: 100%;
     margin: 0 auto;
     display: flex;
+  
+    @include phones() {
+      flex-direction: column;
+    }
   }
   
   &__user {
     flex: 1 1 35%;
+    
+    @include tablets() {
+      flex: 2;
+    }
+    @include phones() {
+      flex: 1 1 100%;
+      margin-bottom: 30PX;
+      
+    }
   }
   
   &__greetings {
     padding-left: 85px;
     flex: 1 1 64%;
+    
+    @include tablets() {
+      flex: 4;
+    }
+  
+    @include phones() {
+      padding-left: 0;
+      margin-bottom: 30PX;
+    
+    }
   }
   
   &__subtitle {
@@ -31,10 +65,17 @@
     font-size: 36px;
     font-weight: 700;
     color: #464d62;
+    @include phones() {
+      max-width: 50%;
+    }
   }
   
   &__desc {
     margin-bottom: 94px;
+    @include phones() {
+      margin-bottom: 48px;
+    }
+    
     
     p {
       font-size: 16px;

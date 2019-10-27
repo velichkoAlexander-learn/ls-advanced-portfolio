@@ -1,9 +1,25 @@
 .skills {
   padding-top: 150px;
   padding-bottom: 90px;
+  @include tablets() {
+    padding-top: 120px;
+  }
+  
+  @include phones() {
+    padding-bottom: 50px;
+  }
   
   background: url("../images/Backpack.png")  0 75% no-repeat;
   
+  @media screen and (max-width: 1400px) {
+    background: url("../images/Backpack.png")  -20% 75% no-repeat;
+
+  }
+  @include desktop() {
+    background: none;
+  }
+  
+ 
   
   &__title {
     width: 100%;
@@ -13,6 +29,15 @@
     line-height: 36px;
     font-weight: 700;
     color: #464d62;
+    @include tablets() {
+      text-align: center;
+      max-width: 300px;
+    }
+    
+    @incluid phones() {
+      text-align: left;
+    }
+
   }
   
   &__desc {
@@ -24,6 +49,16 @@
     font-weight: 600;
     color: #464d62;
     opacity: 0.5;
+    
+    @include tablets() {
+      text-align: center;
+      max-width: 500px;
+      margin: 0 auto 60px;
+    }
+    
+    @incluid phones() {
+      text-align: left;
+    }
   }
   
   &__wrapper {
@@ -33,6 +68,15 @@
   &__list {
     margin-left: auto;
     margin-right: 95px;
+  
+    @include desktop() {
+      margin: 0 auto;
+    }
+  
+    @include tablets() {
+      margin-right: 0;
+      max-width: 590px;
+    }
   }
 }
 
@@ -46,6 +90,10 @@
     line-height: 1;
     font-weight: 700;
     color: #464d62;
+  
+    @include tablets() {
+      text-align: center;
+    }
   }
   
   &__wrapper {
@@ -65,13 +113,44 @@
   }
   
   &__row {
-    display: flex;
-    justify-content: space-between;
-    
     &:not(:last-child) {
       margin-bottom: 50px;
     }
   }
   
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  
+    @include phones() {
+      margin: 0 -10px;
+      & > * {
+        flex: 0 1 50%;
+      }
+    }
+    
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+  }
+  
+}
+.skills__backpack-wrapper {
+  padding-top: 120px;
+  margin: 0 auto;
+  max-width: 316px;
+  width: 100%;
 }
 
+
+.skills__backpack {
+  padding-bottom: 89%;
+  background: url("../images/Backpack.png")  center no-repeat;
+  background-size: 100%;
+  
+  @media screen and (min-width: 1201px) {
+    display: none;
+  }
+}

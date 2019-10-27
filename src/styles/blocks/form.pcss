@@ -5,11 +5,19 @@
 .input-row {
   display: flex;
   justify-content: space-between;
+  
+  @include phones() {
+    flex-direction: column;
+  }
 }
 .input-wrapper {
   margin-bottom: 38px;
   flex: 0 1 407px;
   border-bottom: 2px solid #464d62;
+  
+  @include tablets() {
+    flex: 0 1 calc(50% - 20px);
+  }
 }
 
 .input {

@@ -2,6 +2,7 @@
   
   &__list {
     display: flex;
+    flex-wrap: wrap;
   }
   
   &__item {
@@ -31,6 +32,9 @@
   &--footer {
     .nav__item {
       color: #ffffff;
+      @include phones() {
+        margin-bottom: 30PX;
+      }
     }
   }
 }

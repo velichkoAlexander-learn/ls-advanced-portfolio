@@ -5,6 +5,10 @@
   display: flex;
   color: #fff;
   
+  @include tablets() {
+    margin-top: -60px;
+  }
+  
   &--top {
     top: 0;
     left: 0;
@@ -20,6 +24,10 @@
   display: block;
   height: 120px;
   fill: currentColor;
+  
+  @include tablets() {
+    height: 60px;
+  }
 }
 
 .triangles__single{
@@ -27,4 +35,8 @@
   display: block;
   height: 90px;
   fill: currentColor;
+  
+  @include tablets() {
+    height: 60px;
+  }
 }

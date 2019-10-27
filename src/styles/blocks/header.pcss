@@ -1,14 +1,19 @@
 main {
   position: relative;
 }
+
 .top-wrapper {
   position: relative;
   background: url("../images/Mountain_Baloon.png") no-repeat center;
   background-size: cover;
+  
+  @include phones() {
+    background: url("../images/hero-bg-mb.jpg") no-repeat top center;
+  }
 }
 
 .header {
-  z-index: 10;
+  z-index: 100;
   position: absolute;
   left: 0;
   top: 0;
@@ -24,6 +29,39 @@ main {
 
 .header__nav {
   margin: 0 20px;
+  
+  @media screen and (max-width: 990px) {
+    display: none;
+  }
+}
+
+.header__socials {
+  
+  @media screen and (max-width: 991px) {
+    margin-left: auto;
+    margin-right: 90px;
+  }
+  
+  
+}
+
+.header__socials {
+  @media screen and (max-width: 991px) {
+    margin-left: auto;
+    margin-right: 90px;
+  }
+}
+
+@include phones() {
+  .header__socials {
+    display: none!important;
+  }
+}
+
+.header__hamburger {
+  @media screen and (min-width: 991px) {
+    display: none;
+  }
 }
 
 .logo {

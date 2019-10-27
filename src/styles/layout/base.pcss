@@ -7,6 +7,7 @@ html {
     font-size: 14px;
   }
 }
+
 body,
 html {
   height: 100%;
@@ -31,9 +32,12 @@ body {
 .container {
   margin: 0 auto;
   max-width: 1480px;
-  //width: 95%;
-   width: 1490px;
-
+  width: 95%;
+  
+  @include tablets {
+    width: 89%;
+  }
+  
   @include phones {
     width: 85%;
   }
@@ -94,16 +98,25 @@ img {
   font-size: 36px;
   font-weight: 700;
   color: #464d62;
+  
+  @include phones() {
+    font-size: 24px;
+  }
 }
 
 .bottom-wrapper {
   position: relative;
   background: url("../images/Budda.jpg") no-repeat center;
   background-size: cover;
+  overflow: hidden;
+  
+  @incude phones() {
+  
+  }
 }
 
 .btn {
-
+  
   
   &--main {
     max-width: 348px;

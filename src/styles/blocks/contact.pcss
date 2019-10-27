@@ -1,9 +1,23 @@
 .contact {
+  position: relative;
+  z-index: 10;
   padding-top: 100px;
   padding-bottom: 135px;
+  @include phones() {
+    padding-top: 20px;
+  }
 }
 .contact__title {
   margin-bottom: 90px;
+  
+  @include tablets() {
+    text-align: center;
+  }
+  
+  @include phones() {
+    text-align: left;
+    margin-bottom: 60px;
+  }
 }
 
 .contact__form {
@@ -13,4 +27,8 @@
 
 .contact__btn {
   margin-top: 60px;
+  @include tablets() {
+    display: flex;
+    justify-content: center;
+  }
 }

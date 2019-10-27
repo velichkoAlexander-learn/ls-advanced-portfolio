@@ -24,18 +24,41 @@
   background: svg-load('quote.svg', fill=rgba(#464d62, .1), width=75px, height=63px);
   background-repeat: no-repeat;
   background-position: 0 0;
+  
+  @include tablets() {
+    padding-left: 40px;
+    background: svg-load('quote.svg', fill=rgba(#464d62, .1), width=30px, height=26px);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+  @include phones() {
+    padding-left: 0;
+    background: none;
+  }
+  
 }
 
 .slider__autor {
   padding-left: 95px;
   display: flex;
   align-items: center;
+  @include tablets() {
+    padding-left: 40px;
+  }
+  @include phones() {
+    padding-left: 0;
+  }
 }
 
 .slider__img {
   overflow: hidden;
   margin-right: 30px;
-  flex: 0 1 75px;
+  flex: 0 0 75px;
+  border-radius: 50%;
+  
+  @include phones() {
+    flex: 0 0 50px;
+  }
 }
 
 .slider__name {
@@ -52,3 +75,6 @@
   color: rgba(#464d62, 0.3);
 }
 
+.VueCarousel-navigation-button {
+  visibility: hidden;
+}

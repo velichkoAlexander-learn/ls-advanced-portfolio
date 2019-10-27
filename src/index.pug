@@ -28,36 +28,6 @@ include ./mixins.pug
   }
   ]
   const socials = ['insta', 'vk', 'github']
-  const skills = [
-  ['Front-end', [
-  {title:'HTML5',
-  percent: 10
-  }, {
-  title:'CSS3',
-  percent: 20
-  }, {
-  title:'Javascript',
-  percent: 30
-  },
-  {
-  title:'Jquery<br> и Vue.js',
-  percent: 40
-  }
-  ]],
-  ['Workflow', [
-  {title:'GIT',
-  percent: 50
-  },
-  {title:'Terminal',
-  percent: 60
-  },
-  {title:'Gulp',
-  percent: 70
-  },
-  {title:'Webpack',
-  percent: 80
-  }]]
-  ]
   const userInfo = [
   ['Проживаю', 'Новосибирск'],
   ['Возраст', '27 лет'],
@@ -72,7 +42,7 @@ include ./mixins.pug
   avatar: 'avatar1.png'
   },
   {
-  desc: 'Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах' +
+  desc: 'Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах ' +
   'испытаний и бессонных ночей!',
   author: 'Владимир Сабанцев',
   position: 'Преподаватель',
@@ -90,6 +60,22 @@ html(lang="ru")
   body
     .wrapper
       main
+        .mobile-menu
+          button.mobile-menu__btn-close(type="button")
+          .mobile-menu__wrapper
+            nav.nav.mobile-menu__nav
+              ul.nav__list
+                each item in menu
+                  li.nav__item
+                    a.nav__link(href=`${item.href}` title=`${item.title}`) #{item.title}
+            .mobile-menu__socials
+              ul.social-list
+                each item in socials
+                  li.social-list__item
+                    a.social-list__link(href='#' target="_blank")
+                      +icon(`${item}`, 'social-list__icon')
+
+
         header.header
           .container.header__container
             .logo.header__logo ВА
@@ -103,7 +89,12 @@ html(lang="ru")
                 li.social-list__item
                   a.social-list__link(href='#' target="_blank")
                     +icon(`${item}`, 'social-list__icon')
+            .header__hamburger
+              button.hamburger(type="button")
+                span
+
         .top-wrapper#top
+          +parallax1
           section.hero
             .hero__content
               h1.hero__subtitle Личный сайт <span>веб разработчика</span>
@@ -112,23 +103,24 @@ html(lang="ru")
               | Скролл
               +icon('scroll', 'hero__icon')
           section.hello#hello
-            .hello__wrapper
-              .hello__user
-                .user
-                  .avatar.user__avatar
-                    +image('content/user.jpg', 'avatar__img')
-                  ul.user__info.hello__info
-                    each item in userInfo
-                      li.user__item
-                        .user__label #{item[0]}:
-                        .user__value #{item[1]}
-              .hello__greetings
-                h3.hello__subtitle Привет, меня зовут
-                h2.hello__title  Величко Александр
-                .hello__desc
-                  p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                .hello__disclaimer
-                  p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .container
+              .hello__wrapper
+                .hello__user
+                  .user
+                    .avatar.user__avatar
+                      +image('content/user.jpg', 'avatar__img')
+                    ul.user__info.hello__info
+                      each item in userInfo
+                        li.user__item
+                          .user__label #{item[0]}:
+                          .user__value #{item[1]}
+                .hello__greetings
+                  h3.hello__subtitle Привет, меня зовут
+                  h2.hello__title  Величко Александр
+                  .hello__desc
+                    p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                  .hello__disclaimer
+                    p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
         +triangles('')
         section.skills#skills
           .container
@@ -136,26 +128,10 @@ html(lang="ru")
             .skills__desc
               p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
             .skills__wrapper
-              .skills-list.skills__list
-                each item in skills
-                  .skills-list__title #{item[0]}
-                  .skills-list__row
-                    each skill in item[1]
-                      .skills-list__item
-                        .skill
-                          svg(viewBox="0 0 156 156" preserveAspectRatio="none").skill__shape
-                            linearGradient#gradient(x1="100%" y1="50%" x2="0" y2="50%")
-                              stop(offset="0%" stop-color="#9300e8" )
-                              stop(offset="100%" stop-color="#4a00ed")
-                            circle(r="65" cx="78" cy="78").skill__circle.skill__circle--position--under
-                            circle(
-                              r="65"
-                              cx="78"
-                              cy="78"
-                              stroke="url(#gradient)"
-                              stroke-dashoffset=`${255 - (skill.percent * 2.5)}`
-                            ).skill__circle.skill__circle--position--above
-                          .skill__title !{skill.title}
+              #skills-component
+            .skills__backpack-wrapper
+              .skills__backpack
+
         section.works#works
           .container
             h2.works__title.title Мои работы
@@ -179,11 +155,12 @@ html(lang="ru")
                   span.works__tag HTML
                   span.works__tag CSS
                   span.works__tag Javascript
-                h3.works__subtitle Сайт школы<br>образования
+                h3.works__subtitle Сайт школы образования
                 .works__desc
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2<br>месяца только самых тяжелых<br> испытаний и бессонных ночей!
+                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
                 a.works__link(href="#") Посмотреть сайт
         .bottom-wrapper
+          +parallax2
           .triangles.triangles--top
             svg.triangles__single(viewBox="0 0 1000 100" preserveAspectRatio="none")
               polygon(points="0,0 500,100 1000,0")
@@ -193,21 +170,14 @@ html(lang="ru")
                 h2.title Что обо мне говорят
                 .about__buttons
                   .slider-controls
-                    button.slider-controls__button.slider-controls__button--left(type="button")
+                    button.slider-controls__button.slider-controls__button--left(
+                      type="button"  @click="slide('prev')" :disabled="activePage === 0")
                       +icon('arrow-down','slider-controls__icon')
-                    button.slider-controls__button.slider-controls__button--right(type="button")
+                    button.slider-controls__button.slider-controls__button--right(
+                      type="button"  @click="slide('next')" :disabled="activePage === pages")
                       +icon('arrow-down','slider-controls__icon')
               .about__slider
-                .slider
-                  each review in reviews
-                    .slider__item
-                      backquote.slider__desc= review.desc
-                      .slider__autor
-                        .slider__img
-                          +image(`${review.avatar}`, 'slider__image')
-                        .slider__autor-info
-                          .slider__name= review.author
-                          .slider__position= review.position
+                carousel
           section.contact#contact
             .container
               h2.title.contact__title Связаться со мной
@@ -234,8 +204,8 @@ html(lang="ru")
               .footer__left
                 .footer__copyright © 2019
                 .footer__info
-                  .footer__title Владимир<br>Астахов
-                  .footer__subtitle  Личный сайт<br>веб-разработчика
+                  .footer__title Владимир<span>Астахов</span>
+                  .footer__subtitle  Личный сайт<span>веб-разработчика</span>
               .footer__right
                 nav.nav.nav--footer.footer__nav
                   ul.nav__list
@@ -257,3 +227,4 @@ html(lang="ru")
                         p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
                         cite.backquote__author Martin Golding
 
+      include ./templates/entry
