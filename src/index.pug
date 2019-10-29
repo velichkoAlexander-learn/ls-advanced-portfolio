@@ -135,30 +135,30 @@ html(lang="ru")
         section.works#works
           .container
             h2.works__title.title Мои работы
-            .works__wrapper
-              .works__left
-                .works-slider
-                  .works-slider__active
-                    .works-slider__number 4
-                    +image(`worksPreview/1.jpg`,'works-slider__active-img')
-                    .works-slider__preview
-                      - for(let i =4;i>0;i--)
-                      +image(`worksPreview/${i}.jpg`,`works-slider__preview-item
-                          ${i == 1 ? 'works-slider__preview-item--active' : ''}`)
-                  .works-slider__controls
-                    .works-slider__btn.works-slider__btn--up
-                      +icon('arrow-down','works-slider__icon')
-                    .works-slider__btn.works-slider__btn--down
-                      +icon('arrow-down','works-slider__icon')
-              .works__right
-                .works__tags
-                  span.works__tag HTML
-                  span.works__tag CSS
-                  span.works__tag Javascript
-                h3.works__subtitle Сайт школы образования
-                .works__desc
-                  p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                a.works__link(href="#") Посмотреть сайт
+            #slider-component  
+              //- .works__left
+              //-   .works-slider
+              //-     .works-slider__active
+              //-       .works-slider__number 4
+              //-       +image(`worksPreview/1.jpg`,'works-slider__active-img')
+              //-       .works-slider__preview
+              //-         - for(let i =4;i>0;i--)
+              //-         +image(`worksPreview/${i}.jpg`,`works-slider__preview-item
+              //-             ${i == 1 ? 'works-slider__preview-item--active' : ''}`)
+              //-     .works-slider__controls
+              //-       .works-slider__btn.works-slider__btn--up
+              //-         +icon('arrow-down','works-slider__icon')
+              //-       .works-slider__btn.works-slider__btn--down
+              //-         +icon('arrow-down','works-slider__icon')
+              //- .works__right
+              //-   .works__tags
+              //-     span.works__tag HTML
+              //-     span.works__tag CSS
+              //-     span.works__tag Javascript
+              //-   h3.works__subtitle Сайт школы образования
+              //-   .works__desc
+              //-     p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+              //-   a.works__link(href="#") Посмотреть сайт
         .bottom-wrapper
           +parallax2
           .triangles.triangles--top
