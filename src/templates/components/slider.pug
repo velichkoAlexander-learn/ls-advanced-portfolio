@@ -1,38 +1,44 @@
 script(type="text/x-template")#slider
   .works__wrapper
     .works__left
-      slider-main()
+      slider-main(
+        :works="works"
+        :current-work="currentWork"
+        )
     .works__right
-      slider-info()
+      slider-info(
+        :works="works"
+        :currentWork="currentWork"
+        )
 
 script(type="text/x-template")#slider-main
   .works-slider
       .works-slider__active
         .works-slider__number 4
-        +image(`worksPreview/1.jpg`,'works-slider__active-img')   
-        slider-preview()  
+        img.works-slider__active-img(:src="currentWork.photo")
+        slider-preview(
+          :works="works"
+          :currentWork="currentWork"
+          )  
       slider-controlls()  
 
 script(text="text/x-template")#slider-controlls
   .works-slider__controls
-    .works-slider__btn.works-slider__btn--up
+    .works-slider__btn.works-slider__btn--up(@click="")
       +icon('arrow-down','works-slider__icon')
     .works-slider__btn.works-slider__btn--down
       +icon('arrow-down','works-slider__icon') 
 script(type="text/x-template")#slider-preview
   .works-slider__preview
-        - for(let i =4;i>0;i--)
-        +image(`worksPreview/${i}.jpg`,`works-slider__preview-item
-            ${i == 1 ? 'works-slider__preview-item--active' : ''}`)
+    div(v-for="work in reverseWorks " :key="work.id" :class="{'works-slider__preview-item--active' : work.id === currentWork.id}")
+      img.works-slider__preview-item(:src="work.photo" alt="alt")
 script(type="text/x-template")#slider-info
     div
       slider-tag()
-      h3.works__subtitle Сайт школы образования
+      h3.works__subtitle {{currentWork.title}}
       .works__desc
-        p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-      a.works__link(href="#") Посмотреть сайт            
+        p {{currentWork.description}}
+      a.works__link(:href="currentWork.link") Посмотреть сайт            
 script(type="text/x-temolate")#slider-tag
   .works__tags
-    span.works__tag HTML
-    span.works__tag CSS
-    span.works__tag Javascript
+    span.works__tag() HTML
