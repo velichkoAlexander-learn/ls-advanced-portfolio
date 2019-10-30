@@ -4,41 +4,45 @@ script(type="text/x-template")#slider
       slider-main(
         :works="works"
         :current-work="currentWork"
-        )
+        :current-index="currentIndex"
+        @slide="handleSlide"
+      )
     .works__right
       slider-info(
         :works="works"
         :currentWork="currentWork"
-        )
+      )
 
 script(type="text/x-template")#slider-main
   .works-slider
-      .works-slider__active
-        .works-slider__number 4
-        img.works-slider__active-img(:src="currentWork.photo")
-        slider-preview(
-          :works="works"
-          :currentWork="currentWork"
-          )  
-      slider-controlls()  
+    .works-slider__active
+      .works-slider__number {{currentIndex+1}}
+      img.works-slider__active-img(:src="currentWork.photo")
+      slider-preview(
+        :works="works"
+        :currentWork="currentWork"
+      )
+    slider-controls(
+      @slide="$emit('slide',$event)"
+    )
 
-script(text="text/x-template")#slider-controlls
+script(text="text/x-template")#slider-controls
   .works-slider__controls
-    .works-slider__btn.works-slider__btn--up(@click="")
+    .works-slider__btn.works-slider__btn--up(@click="$emit('slide','prev')")
       +icon('arrow-down','works-slider__icon')
-    .works-slider__btn.works-slider__btn--down
-      +icon('arrow-down','works-slider__icon') 
+    .works-slider__btn.works-slider__btn--down(@click="$emit('slide','next')")
+      +icon('arrow-down','works-slider__icon')
 script(type="text/x-template")#slider-preview
   .works-slider__preview
     div(v-for="work in reverseWorks " :key="work.id" :class="{'works-slider__preview-item--active' : work.id === currentWork.id}")
       img.works-slider__preview-item(:src="work.photo" alt="alt")
 script(type="text/x-template")#slider-info
-    div
-      slider-tag()
-      h3.works__subtitle {{currentWork.title}}
-      .works__desc
-        p {{currentWork.description}}
-      a.works__link(:href="currentWork.link") Посмотреть сайт            
+  div
+    slider-tag()
+    h3.works__subtitle {{currentWork.title}}
+    .works__desc
+      p {{currentWork.description}}
+    a.works__link(:href="currentWork.link") Посмотреть сайт
 script(type="text/x-temolate")#slider-tag
   .works__tags
     span.works__tag() HTML
