@@ -54,7 +54,6 @@ const carousel = {
             const reviewLength = this.reviews.length;
             
             if (this.slidesPerPage > 1) {
-                console.log('computed',reviewLength % 2 === 1 ? (reviewLength - 1) / 2 : (reviewLength / 2 - 1));
                 return reviewLength % 2 === 1 ? (reviewLength - 1) / 2 : (reviewLength / 2 - 1);
             }
             return reviewLength - 1;

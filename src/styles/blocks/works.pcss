@@ -187,7 +187,7 @@
     
     &--up {
       .works-slider__icon {
-        opacity: 0.3;
+        //opacity: 0.3;
         transform: rotate(90deg);
       }
     }
@@ -233,4 +233,11 @@
 }
 .works-slider__active-img {
   width: 100%;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+  opacity: 0;
 }
