@@ -1,7 +1,8 @@
 <template lang="pug">
-    .wrapper
-        AdminHeader
-        AdminMenu
+    .inner
+        div(v-if="hideOnLogin()")
+          AdminHeader
+          AdminMenu
         router-view
 
         //- .page-title
@@ -11,17 +12,7 @@
         //-       button.add-button(type="button") Добавить группу
 
 
-        //- section.login
-        //-   form.login__form
-        //-     h2.login__title Авторизация
-        //-     .input-row
-        //-       .input-wrapper
-        //-         input.input#author(type="text" name="login"  placeholder=" " required )
-        //-         label.input-label(for="author") Логин
-        //-     .input-row
-        //-       .input-wrapper
-        //-         input.input#author(type="password" name="passwors"  placeholder=" " required )
-                label.input-label(for="author") Пароль
+
 
 
 </template>
@@ -34,6 +25,11 @@
         components: {
             AdminHeader,
             AdminMenu
+        },
+        methods: {
+            hideOnLogin() {
+                return !this.$route.path.includes('/login')
+            }
         }
     };
 </script>

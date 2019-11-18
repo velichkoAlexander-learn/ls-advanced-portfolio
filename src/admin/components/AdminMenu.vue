@@ -4,19 +4,19 @@
             ul.main-menu__list
                 router-link(
                     tag="li"
-                    to="/admin/about"
+                    to="/about"
                     active-class="main-menu__item--active"
                 ).main-menu__item
                     .main-menu__link Обо мне
                 router-link(
                     tag="li"
-                    to="/admin/work"
+                    to="/work"
                     active-class="main-menu__item--active"
                 ).main-menu__item
                     .main-menu__link Работы
                 router-link(
                     tag="li"
-                    to="/admin/review"
+                    to="/review"
                     active-class="main-menu__item--active"
                 ).main-menu__item
                     .main-menu__link Отзывы
