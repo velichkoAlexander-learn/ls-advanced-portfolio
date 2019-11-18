@@ -37,7 +37,6 @@
         },
         methods: {
             submit() {
-                console.log('shot');
                 this.$validate()
                     .then(function (success) {
                         if (success) {
@@ -147,33 +146,6 @@
         }
     }
 
-    .error-message {
-        z-index: 10;
-        display: inline-block;
-        opacity: 0;
-        visibility: hidden;
-        position: absolute;
-        top: 100%;
-        background-color: #cd1515;
-        padding: 20px;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1;
-        color: #ffffff;
 
-        &::after {
-            content: '';
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-
-            border-bottom: 10px solid #cd1515;
-        }
-    }
 
 </style>

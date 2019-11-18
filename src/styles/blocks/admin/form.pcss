@@ -1,97 +1,138 @@
 .input-wrapper {
-  margin-bottom: 38px;
-  flex: 0 1 407px;
-  border-bottom: 2px solid #414c63;
+    margin-bottom: 38px;
+    flex: 0 1 407px;
+    border-bottom: 2px solid #414c63;
 }
 
 
 .input {
-  width: 100%;
-  padding: 19px 19px 19px 0;
-  font-size: 18px;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  font-weight: 700;
-  color: #464d62;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  
-  &:focus ~ .input-label,
-  &:not(:placeholder-shown) ~ .input-label {
-    transform: translateY(calc(-50% - 30px));
-  }
-  
+    width: 100%;
+    padding: 19px 19px 19px 0;
+    font-size: 18px;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: 700;
+    color: #464d62;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &:focus ~ .input-label,
+    &:not(:placeholder-shown) ~ .input-label {
+        transform: translateY(calc(-50% - 30px));
+    }
+
 }
 
 
 .input-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
-.input-label {
-  position: absolute;
-  top: 30px;
-  transform: translateY(-50%);
-  left: 0;
-  padding-left: 0;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  color: rgba(#464d62, .3);
-  font-size: 16px;
-  font-weight: 600;
-  transition: transform .3s;
-}
 
-.textarea-wrapper {
-  margin-bottom: 38px;
-  
-  .input-label {
-    margin-bottom: 20px;
-    display: inline-block;
-    position: initial;
-    transform: none;
+  &.error {
+    border-color: #cd1515;
+
+    .error-message {
+      opacity: 1;
+      visibility: visible;
+
+    }
   }
 }
 
+.input-label {
+    position: absolute;
+    top: 30px;
+    transform: translateY(-50%);
+    left: 0;
+    padding-left: 0;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    color: rgba(#464d62, .3);
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform .3s;
+}
+
+.textarea-wrapper {
+    margin-bottom: 38px;
+
+    .input-label {
+        margin-bottom: 20px;
+        display: inline-block;
+        position: initial;
+        transform: none;
+    }
+}
+
 .textarea-inner {
-  padding: 10px;
-  border: 1px solid rgba(#414c63, 0.2);
-  
-  
+    padding: 10px;
+    border: 1px solid rgba(#414c63, 0.2);
+
+
 }
 
 .textarea {
-//max-width: 395px; min-height: 110px; width: 100%; font-size: 18px;
-  line-height: 36px;
-  font-family: 'Open Sans', Helvetica, sans-serif;
-  font-weight: 700;
-  color: #464d62;
-  background-color: transparent;
-  resize: none;
-  border: none;
-  
+//max-width: 395px;  min-height: 110px;
+    width: 100%;
+    font-size: 18px;
+    line-height: 36px;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    font-weight: 700;
+    color: #464d62;
+    background-color: transparent;
+    resize: none;
+    border: none;
+
 }
 
 
 .input-row {
-  display: flex;
-  justify-content: space-between;
-  @media screen and (max-width: 768px) {
-    flex-wrap: wrap;
-  }
-  
-  & > * {
-    flex: 0 1 calc(50% - 15px);
-    
+    display: flex;
+    justify-content: space-between;
     @media screen and (max-width: 768px) {
-      flex-basis: 290px
+        flex-wrap: wrap;
     }
-    
-    @media screen and (max-width: 560px) {
-      flex-basis: 100%;
+
+    & > * {
+        flex: 0 1 calc(50% - 15px);
+
+        @media screen and (max-width: 768px) {
+            flex-basis: 290px
+        }
+
+        @media screen and (max-width: 560px) {
+            flex-basis: 100%;
+        }
     }
-  }
 }
 
+.error-message {
+  z-index: 10;
+  display: inline-block;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  background-color: #cd1515;
+  padding: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color: #ffffff;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+
+    border-bottom: 10px solid #cd1515;
+  }
+}
 
