@@ -10,16 +10,19 @@
                 .works-form__image-text Перетащите или загрузите<br>для загрузки изображения
                 button(type="button").works-form__image-btn ЗАГРУЗИТЬ
             .works-form__fields
-              .input-wrapper
-                input.input#name(type="text" name="name"  placeholder=" " required )
+              .input-wrapper(:class="{error: validation.hasError('name')}")
+                input.input#name(type="text" name="name"  placeholder=" " required  v-model="name")
                 label.input-label(for="name") Название
-              .input-wrapper
-                input.input#link(type="text" name="link" placeholder=" "  required )
+                div.error-message {{ validation.firstError('name') }}
+              .input-wrapper(:class="{error: validation.hasError('link')}")
+                input.input#link(type="text" name="link" placeholder=" "  required v-model="link")
                 label.input-label(for="link") Ссылка
-              .textarea-wrapper
+                div.error-message {{ validation.firstError('link') }}
+              .input-wrapper.textarea-wrapper(:class="{error: validation.hasError('description')}")
                 label.input-label(for="description") Описание
                 .textarea-inner
-                  textarea.textarea#description(name="description" placeholder=" ")
+                  textarea.textarea#description(name="description" placeholder=" " v-model="description")
+                div.error-message {{ validation.firstError('description') }}
               .input-wrapper
                 input.input#tag(type="text" name="tag" placeholder=" "  required )
                 label.input-label(for="tag") Добавление тэга
@@ -37,7 +40,7 @@
               .works-form__btns
                 .control-btns
                   button(type="button").control-btn.control-btn--cancel Отмена
-                  button(type="button").control-btn.control-btn--save Сохранить
+                  button(type="button" @click="save").control-btn.control-btn--save Сохранить
         .works__list
           .works__item
             button(type="button").add-card
@@ -83,3 +86,40 @@
                 button(type="button").card__btn.card__btn--edit Править
                 button(type="button").card__btn.card__btn--remove Удалить
 </template>
+
+<script>
+    import SimpleVueValidation from 'simple-vue-validator';
+    const Validator = SimpleVueValidation.Validator;
+
+    export default {
+        name: "AdminWork",
+        data() {
+            return {
+                name: '',
+                link: '',
+                description: ''
+            }
+        },
+        validators: {
+            name: function (value) {
+                return Validator.value(value).required();
+            },
+            link(value) {
+                return Validator.value(value).required();
+            },
+            description(value) {
+                return Validator.value(value).required();
+            }
+        },
+        methods: {
+            save() {
+                this.$validate()
+                    .then(function (success) {
+                        if (success) {
+                            alert('Validation succeeded!');
+                        }
+                    });
+            }
+        }
+    }
+</script>
