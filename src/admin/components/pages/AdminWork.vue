@@ -1,5 +1,9 @@
 <template lang="pug">
-  section.works 
+  div
+    .page-title
+      .container.page-title__container
+        .page-title__item Блок «Работы»
+    section.works
       .container
         .works__form
           .works__form-header.title-header
@@ -50,7 +54,7 @@
           .works__item
             .card
               .card__hero
-                //- img.card__hero-image(src="../../images/card_hero.jpg" alt="alt") 
+                //- img.card__hero-image(src="../../images/card_hero.jpg" alt="alt")
                 .card__hero-tags
                   ul.tags
                     li.tags__item
@@ -89,6 +93,7 @@
 
 <script>
     import SimpleVueValidation from 'simple-vue-validator';
+
     const Validator = SimpleVueValidation.Validator;
 
     export default {
@@ -114,11 +119,11 @@
         methods: {
             save() {
                 this.$validate()
-                    .then(function (success) {
-                        if (success) {
-                            alert('Validation succeeded!');
-                        }
-                    });
+                  .then(function (success) {
+                      if (success) {
+                          alert('Validation succeeded!');
+                      }
+                  });
             }
         }
     }

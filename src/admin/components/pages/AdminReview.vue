@@ -1,4 +1,8 @@
 <template lang="pug">
+  div
+    .page-title
+      .container.page-title__container
+        .page-title__item Блок «Отзывы»
     section.reviews
         .container
             form

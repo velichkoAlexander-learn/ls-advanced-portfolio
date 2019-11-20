@@ -7,17 +7,17 @@
                     to="/about"
                     active-class="main-menu__item--active"
                 ).main-menu__item
-                    .main-menu__link Обо мне
+                    .main-menu__link(title="Обо мне") Обо мне
                 router-link(
                     tag="li"
                     to="/work"
                     active-class="main-menu__item--active"
                 ).main-menu__item
-                    .main-menu__link Работы
+                    .main-menu__link(title="Работы") Работы
                 router-link(
                     tag="li"
                     to="/review"
                     active-class="main-menu__item--active"
                 ).main-menu__item
-                    .main-menu__link Отзывы
+                    .main-menu__link(title="Отзывы") Отзывы
 </template>

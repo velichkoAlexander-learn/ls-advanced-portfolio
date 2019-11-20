@@ -3,11 +3,11 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-import AdminAbout from './components/AdminAbout';
-import AdminWork from './components/AdminWork';
-import AdminReview from './components/AdminReview';
-import AdminLogin from "./components/AdminLogin";
-import AdminNotFound from "./components/AdminNotFound";
+import AdminAbout from './components/pages/AdminAbout';
+import AdminWork from './components/pages/AdminWork';
+import AdminReview from './components/pages/AdminReview';
+import AdminLogin from "./components/pages/AdminLogin";
+import AdminNotFound from "./components/pages/AdminNotFound";
 
 const routes = [
     {

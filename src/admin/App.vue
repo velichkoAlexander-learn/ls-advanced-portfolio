@@ -1,20 +1,9 @@
 <template lang="pug">
-    .inner
-        div(v-if="hideOnLogin()")
-          AdminHeader
-          AdminMenu
-        router-view
-
-        //- .page-title
-        //-   .container.page-title__container
-        //-     .page-title__item Блок «Обо мне»
-        //-     .page-title__button
-        //-       button.add-button(type="button") Добавить группу
-
-
-
-
-
+  .inner
+    div(v-if="hideOnLogin()")
+      AdminHeader
+      AdminMenu
+    router-view
 </template>
 
 <script>
@@ -35,9 +24,14 @@
 </script>
 
 <style lang="postcss">
-    @import "normalize.css";
-    @import "../styles/mixins.pcss";
-    @import "../styles/blocks/admin/*.pcss";
+  @import "normalize.css";
+  @import "../styles/mixins.pcss";
+  @import "../styles/blocks/admin/*.pcss";
+  .inner {
+    height: 100vh;
+    background: url("../images/admin.jpg") center center no-repeat;
+    background-size: cover;
+  }
 </style>
 
 

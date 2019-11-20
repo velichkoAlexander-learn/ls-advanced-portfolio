@@ -1,5 +1,12 @@
 <template lang="pug">
+  div
+    .page-title
+      .container.page-title__container
+        .page-title__item Блок «Обо мне»
+        .page-title__button
+          button.add-button(type="button") Добавить группу
     section.skills
+
         .container
             .skills__container
                 .slills__item
