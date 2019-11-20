@@ -3,12 +3,12 @@
         form.login__form
             h2.login__title Авторизация
             .input-row
-                .input-wrapper(:class="{error: validation.hasError('login')}")
+                .input-wrapper.input-wrapper--login(:class="{error: validation.hasError('login')}")
                     input.input#login(type="text" name="login"  placeholder=" " required v-model="login" )
                     label.input-label(for="login") Логин
                     div.error-message {{ validation.firstError('login') }}
             .input-row
-                .input-wrapper(:class="{error: validation.hasError('password')}")
+                .input-wrapper.input-wrapper--password(:class="{error: validation.hasError('password')}")
                     input.input#password(type="password" name="passwors"  placeholder=" " required v-model="password")
                     label.input-label(for="password") Пароль
                     div.error-message {{ validation.firstError('password') }}
@@ -111,6 +111,48 @@
 
             }
         }
+
+      &--login {
+        &.error::after {
+          background-image: svg-load('avatar-login.svg', fill=#cd1515, width=100%, height=100%);
+          opacity: 1;
+        }
+        &::after {
+          content: '';
+          background-image: svg-load('avatar-login.svg', fill=#414c63, width=100%, height=100%);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 26px;
+          height: 30px;
+          opacity: 0.3;
+        }
+      }
+
+      &--password {
+        &.error::after {
+          background-image: svg-load('key.svg', fill=#cd1515, width=100%, height=100%);
+          opacity: 1;
+        }
+        &::after {
+          content: '';
+          background-image: svg-load('key.svg', fill=#414c63, width=100%, height=100%);
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 28px;
+          height: 28px;
+          opacity: 0.3;
+        }
+      }
     }
 
     .input-label {
