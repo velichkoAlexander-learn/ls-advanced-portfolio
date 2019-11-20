@@ -30,10 +30,10 @@ const routes = [
         path: '/login',
         component: AdminLogin
     },
-    // {
-    //     path: '/admin/*',
-    //     component: AdminNotFound
-    // }
+    {
+        path: '/*',
+        component: AdminNotFound
+    }
 ];
 
 export default new VueRouter({
