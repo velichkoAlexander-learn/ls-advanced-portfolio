@@ -11,8 +11,8 @@ import AdminNotFound from "./components/AdminNotFound";
 
 const routes = [
     {
-        path: '/ ',
-        component: AdminLogin
+        path: '/',
+        component: AdminAbout
     },
     {
         path: '/about',
