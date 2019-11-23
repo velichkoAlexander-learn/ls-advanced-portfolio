@@ -20,17 +20,29 @@ export default {
     actions: {
         async loginUser(store, user) {
             try {
-                console.log(store);
                 const {
                     data: {token}
                 }
                   = await this.$axios.post("/login", user);
                 localStorage.setItem("token", token);
                 this.$axios.defaults.headers["Authorization"] = `Bearer ${token}`;
-                // commit(SET_USER, user);
+                store.commit('SET_USER', user);
                 return true;
             } catch (error) {
                 alert(error.message);
+            }
+        },
+        async logout(store) {
+            try {
+                const {data:success} = await this.$axios.post("/logout");
+                if(success) {
+                    localStorage.removeItem("token");
+                    store.commit('SET_USER', {});
+                    return true;
+                }
+                return false;
+            } catch (error) {
+                console.log(error.message);
             }
         }
     },
