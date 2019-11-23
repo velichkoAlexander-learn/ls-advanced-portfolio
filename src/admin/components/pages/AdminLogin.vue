@@ -17,10 +17,10 @@
 
 <script>
     import SimpleVueValidation from 'simple-vue-validator';
-    import axios from 'axios';
 
-    const baseUrl = 'https://webdev-api.loftschool.com/';
     const Validator = SimpleVueValidation.Validator;
+    import {mapActions, mapState} from "vuex";
+
     export default {
         name: "AdminLogin",
         data() {
@@ -32,27 +32,29 @@
             }
         },
         validators: {
-            login: function (value) {
+            'user.name': function (value) {
                 return Validator.value(value).required().minLength(6);
             },
-            password(value) {
+            'user.password': function (value) {
                 return Validator.value(value).required().minLength(6);
             }
         },
         methods: {
-            login() {
-                axios.post(`${baseUrl}/login`, this.user)
-                  .then(res => console.log(res.data))
-                  .catch(err => console.log(err.response.data));
-            },
-            // submit() {
-            //     this.$validate()
-            //       .then(function (success) {
-            //           if (success) {
-            //               alert('Validation succeeded!');
-            //           }
-            //       });
-            // }
+            ...mapActions("user", ["loginUser"]),
+            async login() {
+                const success = await this.$validate();
+                if (success) {
+                    try {
+                        const res = await this.loginUser(this.user);
+                        console.log(res);
+                        if (res) {
+                            this.$router.replace("/");
+                        }
+                    } catch (error) {
+                        alert(error.message);
+                    }
+                }
+            }
         }
     }
 </script>

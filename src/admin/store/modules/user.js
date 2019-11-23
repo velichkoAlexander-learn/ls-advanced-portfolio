@@ -16,5 +16,23 @@ export default {
             
             return userObjectIsEmpty === false;
         }
-    }
+    },
+    actions: {
+        async loginUser(store, user) {
+            try {
+                console.log(store);
+                const {
+                    data: {token}
+                }
+                  = await this.$axios.post("/login", user);
+                localStorage.setItem("token", token);
+                this.$axios.defaults.headers["Authorization"] = `Bearer ${token}`;
+                // commit(SET_USER, user);
+                return true;
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+    },
 };
+
