@@ -15,6 +15,7 @@
     "@babel/core": "^7.2.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.7.1",
+    "@wdio/cli": "^5.16.9",
     "acorn": "^6.0.5",
     "acorn-dynamic-import": "^4.0.0",
     "autoprefixer": "^9.4.8",
@@ -53,6 +54,7 @@
     "@babel/plugin-transform-regenerator": "^7.7.0",
     "@babel/polyfill": "^7.7.0",
     "axios": "^0.19.0",
+    "jest": "^24.9.0",
     "normalize.css": "^8.0.1",
     "promptly": "^3.0.3",
     "pug": "^2.0.3",
@@ -62,6 +64,7 @@
     "vue": "^2.6.7",
     "vue-carousel": "^0.18.0",
     "vue-router": "^3.0.2",
-    "vuex": "^3.1.2"
+    "vuex": "^3.1.2",
+    "webdriverio": "^5.16.9"
   }
 }
