@@ -41,6 +41,7 @@
         },
         methods: {
             ...mapActions("user", ["loginUser"]),
+            ...mapActions('tooltip', ['showTooltip']),
             async login() {
                 const success = await this.$validate();
                 if (success) {
@@ -48,13 +49,25 @@
                         const res = await this.loginUser(this.user);
                         console.log(res);
                         if (res) {
+                            this.showTooltip({
+                                active: true,
+                                massage: 'Вы залогинены успешно',
+                                status: 'success',
+                            });
                             this.$router.replace("/");
+                        } else {
+                            this.showTooltip({
+                                active: true,
+                                massage: 'Ошибка, попробуйте еще раз.',
+                                status: 'error',
+                            });
                         }
                     } catch (error) {
-                        alert(error.message);
+                        console.log(error);
                     }
                 }
-            }
+            },
+
         }
     }
 </script>

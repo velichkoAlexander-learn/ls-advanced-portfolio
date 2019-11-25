@@ -29,7 +29,7 @@ export default {
                 store.commit('SET_USER', user);
                 return true;
             } catch (error) {
-                alert(error.message);
+                return false;
             }
         },
         async logout(store) {

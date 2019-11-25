@@ -48,11 +48,6 @@ const routes = [
     // mode: 'history'
 });
 
-
-
- 
- console.log(store.commit);
-
 router.beforeEach(async (to, from, next) => {
     const isPublicRoute = to.matched.some(record => record.meta.public);
     const isUserLogged = store.getters["user/userIsLogged"];
