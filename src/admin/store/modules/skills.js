@@ -1,38 +1,35 @@
 export default {
-  namespaced: true,
-  actions: {
-    async addSkill({ commit }, skill) {
-      try {
-        const { data } = await this.$axios.post("/skills", skill);
-        commit("categories/ADD_SKILL", data, { root: true });
-      } catch (error) {}
+    namespaced: true,
+    state: {},
+    mutations: {},
+    actions: {
+        async addSkill (context, payload) {
+            try {
+                const { data } = await this.$axios.post('/skills', payload);
+                context.commit('categories/ADD_SKILL', data, { root: true });
+                  context.dispatch('tooltip/showTooltip', { type: 'success', message: 'Скилл успешно добавлен' }, { root: true });
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async deleteSkill (context, payload) {
+            try {
+                await this.$axios.delete(`/skills/${ payload.id }`);
+                context.commit('categories/DELETE_SKILL', payload, { root: true });
+                  context.dispatch('tooltip/showTooltip', { type: 'success', message: 'Скилл успешно удален' }, { root: true });
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        async editSkill (context, payload) {
+            try {
+                const { data } = await this.$axios.post(`/skills/${ payload.id }`, payload);
+                context.commit('categories/EDIT_SKILL', data.skill, { root: true });
+                  context.dispatch('tooltip/showTooltip', { type: 'success', message: 'Скилл успешно изменен' }, { root: true });
+            } catch (error) {
+                console.log(error);
+            }
+        }
     },
-    async removeSkill({ commit }, skill) {
-      try {
-        const { data } = await this.$axios.delete(`/skills/${skill.id}`);
-        commit("categories/REMOVE_SKILL", skill, { root: true });
-      } catch (error) {}
-    },
-    async editSkill({ commit }, editedSkill) {
-      try {
-        const { data } = await this.$axios.post(
-          `/skills/${editedSkill.id}`,
-          editedSkill
-        );
-
-        commit("categories/EDIT_SKILL", data.skill, { root: true });
-      } catch (error) {}
-    },
-    
-    async addReview(store, review) {
-      const formData = new FormData();
-
-      Object.keys(review).forEach(key => {
-        formData.append(key, review[key]);
-      })
-
-      await this.$axios.post('/reviews', formData); 
-      
-    }
-  }
+    getters: {}
 };
