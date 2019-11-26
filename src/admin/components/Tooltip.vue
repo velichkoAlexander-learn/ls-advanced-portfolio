@@ -1,7 +1,7 @@
 <template lang="pug">
   .tooltip-container(:class="{isVisible:tooltip.active }")
     .tooltip(:class="`tooltip--${tooltip.status}`")
-      .tooltip__text {{ tooltip.massage }}
+      .tooltip__text {{ tooltip.message }}
       button(@click="closeExistTooltip").tooltip__close
 </template>
 

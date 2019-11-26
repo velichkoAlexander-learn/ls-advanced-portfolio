@@ -3,19 +3,20 @@ export default {
     state: {
         tooltip: {
             active: false,
-            massage: 'test',
+            message: 'test',
             status: 'success',
         }
     },
     mutations: {
         SET_STATUS(state, {
             active = false,
-            massage = '',
+            message = '',
             status = 'success'
         }) {
+            
             state.tooltip = {
                 active,
-                massage,
+                message,
                 status
             };
         },
@@ -26,7 +27,7 @@ export default {
             commit('SET_STATUS', status);
             setTimeout(() =>  commit('SET_STATUS', {
                 active: false,
-            }), 3000);
+            }), 1500);
         },
         closeTooltip({commit}) {
             commit('SET_STATUS', {
